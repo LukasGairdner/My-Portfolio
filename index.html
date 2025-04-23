@@ -88,7 +88,7 @@
       opacity: 1;
     }
 
-    .gallery img.fade {
+    .fade-out {
       opacity: 0;
     }
 
@@ -172,15 +172,16 @@
     const descEl = document.getElementById("imageDescription");
 
     function showImage(index) {
-      imgEl.classList.add("fade");
-
-      const newImg = new Image();
-      newImg.src = images[index].src;
-      newImg.onload = () => {
-        imgEl.src = newImg.src;
-        imgEl.alt = images[index].desc;
-        descEl.textContent = images[index].desc;
-        imgEl.classList.remove("fade");
+      imgEl.classList.add("fade-out");
+      const tempImg = new Image();
+      tempImg.src = images[index].src;
+      tempImg.onload = () => {
+        setTimeout(() => {
+          imgEl.src = tempImg.src;
+          imgEl.alt = images[index].desc;
+          descEl.textContent = images[index].desc;
+          imgEl.classList.remove("fade-out");
+        }, 200);
       };
     }
 
