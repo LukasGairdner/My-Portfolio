@@ -84,6 +84,12 @@
       height: auto;
       border-radius: 8px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: opacity 0.4s ease;
+      opacity: 1;
+    }
+
+    .gallery img.fade {
+      opacity: 0;
     }
 
     .gallery-controls {
@@ -166,8 +172,13 @@
     const descEl = document.getElementById("imageDescription");
 
     function showImage(index) {
-      imgEl.src = images[index].src;
-      descEl.textContent = images[index].desc;
+      imgEl.classList.add("fade");
+      setTimeout(() => {
+        imgEl.src = images[index].src;
+        imgEl.alt = images[index].desc;
+        descEl.textContent = images[index].desc;
+        imgEl.classList.remove("fade");
+      }, 200);
     }
 
     function nextImage() {
@@ -180,23 +191,14 @@
       showImage(current);
     }
 
+    // Preload all images
     images.forEach(img => {
-  const preload = new Image();
-  preload.src = img.src;
-});
+      const preload = new Image();
+      preload.src = img.src;
+    });
 
-    function showImage(index) {
-  imgEl.classList.add("fade");
-  setTimeout(() => {
-    imgEl.src = images[index].src;
-    descEl.textContent = images[index].desc;
-    imgEl.classList.remove("fade");
-  }, 200);
-}
-
-.gallery img.fade {
-  opacity: 0;
-}
+    // Initialize gallery on load
+    showImage(current);
   </script>
 </body>
 
