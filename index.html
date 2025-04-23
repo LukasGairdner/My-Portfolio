@@ -120,7 +120,7 @@
 
   <div class="layout">
     <div class="side-image">
-      <img src="images/project1" alt="Graduation Photo" />
+      <img src="images/grad.jpg" alt="Graduation Photo" />
     </div>
 
     <div class="main-content">
@@ -134,13 +134,13 @@
       <section id="portfolio" class="section">
         <h2>My Work</h2>
         <div class="gallery">
-          <img id="galleryImage" src="images/project2.jpg" alt="Project Image">
+          <img id="galleryImage" src="" alt="Project Image">
           <div class="gallery-controls">
             <button onclick="prevImage()">&#8592; Prev</button>
             <button onclick="nextImage()">Next &#8594;</button>
           </div>
           <div class="gallery-description" id="imageDescription">
-            Project 1: Description of the first image goes here.
+            <!-- Description will go here -->
           </div>
         </div>
       </section>
@@ -155,34 +155,34 @@
   </div>
 
   <script>
-  const images = [
-    { src: "images/project2.jpg", desc: "Project 1: Description of the first image goes here." },
-    { src: "images/project3.jpg", desc: "Project 2: Description of the second image goes here." },
-    { src: "images/project4.jpg", desc: "Project 3: Description of the third image goes here." }
-  ];
+    const images = [
+      { src: "images/project2.jpg", desc: "Project 1: Description of the first image goes here." },
+      { src: "images/project3.jpg", desc: "Project 2: Description of the second image goes here." },
+      { src: "images/project4.jpg", desc: "Project 3: Description of the third image goes here." }
+    ];
 
-  let current = 0;
-  const imgEl = document.getElementById("galleryImage");
-  const descEl = document.getElementById("imageDescription");
+    let current = 0;
+    const imgEl = document.getElementById("galleryImage");
+    const descEl = document.getElementById("imageDescription");
 
-  function showImage(index) {
-    imgEl.src = images[index].src;
-    descEl.textContent = images[index].desc;
-  }
+    function showImage(index) {
+      imgEl.src = images[index].src;
+      descEl.textContent = images[index].desc;
+    }
 
-  function nextImage() {
-    current = (current + 1) % images.length;
+    function nextImage() {
+      current = (current + 1) % images.length;
+      showImage(current);
+    }
+
+    function prevImage() {
+      current = (current - 1 + images.length) % images.length;
+      showImage(current);
+    }
+
+    // Initialize gallery on load
     showImage(current);
-  }
-
-  function prevImage() {
-    current = (current - 1 + images.length) % images.length;
-    showImage(current);
-  }
-
-  showImage(current);
-</script>
-
+  </script>
 </body>
 
 </html>
