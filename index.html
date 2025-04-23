@@ -160,53 +160,49 @@
     </div>
   </div>
 
- <script>
-  const images = [
-    { src: "images/project2.jpg", desc: "Project 1: Description of the first image goes here." },
-    { src: "images/project3.jpg", desc: "Project 2: Description of the second image goes here." },
-    { src: "images/project4.jpg", desc: "Project 3: Description of the third image goes here." }
-  ];
+  <script>
+    const images = [
+      { src: "images/project2.jpg", desc: "Project 1: Description of the first image goes here." },
+      { src: "images/project3.jpg", desc: "Project 2: Description of the second image goes here." },
+      { src: "images/project4.jpg", desc: "Project 3: Description of the third image goes here." }
+    ];
 
-  let current = 0;
-  const imgEl = document.getElementById("galleryImage");
-  const descEl = document.getElementById("imageDescription");
+    let current = 0;
+    const imgEl = document.getElementById("galleryImage");
+    const descEl = document.getElementById("imageDescription");
 
-  // Wait until all images are loaded before showing the first one
-  let loadedCount = 0;
-  const preloadImages = [];
+    function showImage(index) {
+      imgEl.classList.add("fade");
 
-  images.forEach((img, index) => {
-    preloadImages[index] = new Image();
-    preloadImages[index].src = img.src;
-    preloadImages[index].onload = () => {
-      loadedCount++;
-      if (loadedCount === images.length) {
-        showImage(current); // only after all are loaded
-      }
-    };
-  });
+      const newImg = new Image();
+      newImg.src = images[index].src;
+      newImg.onload = () => {
+        imgEl.src = newImg.src;
+        imgEl.alt = images[index].desc;
+        descEl.textContent = images[index].desc;
+        imgEl.classList.remove("fade");
+      };
+    }
 
-  function showImage(index) {
-    imgEl.classList.add("fade");
-    setTimeout(() => {
-      imgEl.src = images[index].src;
-      imgEl.alt = images[index].desc;
-      descEl.textContent = images[index].desc;
-      imgEl.classList.remove("fade");
-    }, 200);
-  }
+    function nextImage() {
+      current = (current + 1) % images.length;
+      showImage(current);
+    }
 
-  function nextImage() {
-    current = (current + 1) % images.length;
+    function prevImage() {
+      current = (current - 1 + images.length) % images.length;
+      showImage(current);
+    }
+
+    // Preload all images
+    images.forEach(img => {
+      const preload = new Image();
+      preload.src = img.src;
+    });
+
+    // Initialize gallery on load
     showImage(current);
-  }
-
-  function prevImage() {
-    current = (current - 1 + images.length) % images.length;
-    showImage(current);
-  }
-</script>
-
+  </script>
 </body>
 
 </html>
