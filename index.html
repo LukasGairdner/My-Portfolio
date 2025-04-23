@@ -180,8 +180,23 @@
       showImage(current);
     }
 
-    // Initialize gallery on load
-    showImage(current);
+    images.forEach(img => {
+  const preload = new Image();
+  preload.src = img.src;
+});
+
+    function showImage(index) {
+  imgEl.classList.add("fade");
+  setTimeout(() => {
+    imgEl.src = images[index].src;
+    descEl.textContent = images[index].desc;
+    imgEl.classList.remove("fade");
+  }, 200);
+}
+
+.gallery img.fade {
+  opacity: 0;
+}
   </script>
 </body>
 
