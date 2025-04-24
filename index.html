@@ -174,16 +174,19 @@
     const descEl = document.getElementById("imageDescription");
 
     function showImage(index) {
-      imgEl.classList.add("fade-out");
-      const tempImg = new Image();
-      tempImg.src = images[index].src;
-      tempImg.onload = () => {
-        setTimeout(() => {
-          imgEl.src = tempImg.src;
-          imgEl.alt = images[index].desc;
-          descEl.textContent = images[index].desc;
-          imgEl.classList.remove("fade-out");
-        }, 200);
+  imgEl.classList.add("fade-out");
+
+  setTimeout(() => {
+    imgEl.src = images[index].src;
+    imgEl.alt = images[index].desc;
+    descEl.textContent = images[index].desc;
+
+    // Force reflow to re-trigger transition
+    void imgEl.offsetWidth;
+
+    imgEl.classList.remove("fade-out");
+  }, 400);
+}, 200);
       };
     }
 
