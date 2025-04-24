@@ -53,6 +53,7 @@
       width: 100%;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      transition: opacity 0.8s ease;
     }
 
     .main-content {
@@ -126,7 +127,7 @@
 
   <div class="layout">
     <div class="side-image">
-      <img src="images/grad.jpg" alt="Graduation Photo" />
+      <img id="gradImage" src="images/Grad1.jpg" alt="Graduation Photo" />
     </div>
 
     <div class="main-content">
@@ -161,6 +162,7 @@
   </div>
 
   <script>
+    // Portfolio image logic
     const images = [
       { src: "images/project2.jpg", desc: "Project 1: Description of the first image goes here." },
       { src: "images/project3.jpg", desc: "Project 2: Description of the second image goes here." },
@@ -195,14 +197,35 @@
       showImage(current);
     }
 
-    // Preload all images
+    // Preload gallery images
     images.forEach(img => {
       const preload = new Image();
       preload.src = img.src;
     });
 
-    // Initialize gallery on load
     showImage(current);
+
+    // Grad photo slideshow
+    const gradImages = [
+      "images/Grad1.jpg",
+      "images/Grad2.jpg",
+      "images/Grad3.jpg",
+      "images/Grad4.jpg",
+      "images/Grad5.jpg"
+    ];
+    let gradIndex = 0;
+    const gradImg = document.getElementById("gradImage");
+
+    function cycleGradImages() {
+      gradIndex = (gradIndex + 1) % gradImages.length;
+      gradImg.style.opacity = 0;
+      setTimeout(() => {
+        gradImg.src = gradImages[gradIndex];
+        gradImg.style.opacity = 1;
+      }, 400);
+    }
+
+    setInterval(cycleGradImages, 5000); // change image every 5 seconds
   </script>
 </body>
 
