@@ -110,8 +110,9 @@
 
     .gallery-description {
       margin-top: 1rem;
-      text-align: center;
-      max-width: 500px;
+      text-align: left;
+      max-width: 700px;
+      padding-left: 10px;
     }
   </style>
 </head>
@@ -189,11 +190,11 @@
     const images = [
       { src: "images/Capstone1.jpg", desc: "For my Capstone I decided to build my own Computer from scratch, It was a real challenge to gather the necessary parts I needed especially under a budget of $700. Mr. Johnstone, my capstone mentor, helped guide me through what I should look for and how to get them." },
       
-      { src: "images/Capstone2.jpg", desc: "After getting all of the parts necessary, I started to assemble everything slowly and after a bit of trial and error; I had a fuctioning computer and I ended up under budget as well with my grand total cost being $695! Though that sounds like a lot, most modern, well made computers cost anywhere from $1200 to $1600 as a starting range, so I was quite satified with my finished product." },
+      { src: "images/Capstone2.jpg", desc: "After getting all of the parts necessary, I started to assemble everything slowly and after a bit of trial and error; I had a functioning computer and I ended up under budget as well with my grand total cost being $695! Though that sounds like a lot, most modern, well made computers cost anywhere from $1200 to $1600 as a starting range, so I was quite satisfied with my finished product." },
       
-      { src: "images/Capstone3.jpg", desc: "One of the ways I saved on costs for my capstone was by removing parts from older computers to reuse in mine. I disasebled around 6 desktop computers that ultimately saved me around $300!" },
+      { src: "images/Capstone3.jpg", desc: "One of the ways I saved on costs for my capstone was by removing parts from older computers to reuse in mine. I disassembled around 6 desktop computers that ultimately saved me around $300!" },
       
-      { src: "images/VolunteerHours1.jpg", desc: "To meet my 30 hours requirment, I decided to volunteer at the Fort Nelson First Nation Admin building working under their IT Admin Dana." },
+      { src: "images/VolunteerHours1.jpg", desc: "To meet my 30 hours requirement, I decided to volunteer at the Fort Nelson First Nation Admin building working under their IT Admin Dana. I was placed in their tech storage room, which was a dream for me to be in!" },
       
       { src: "images/VolunteerHours2.jpg", desc: "Over the course of my week there, I spent my time repairing laptops, troubleshooting hardware and software, and learning hands on experience working in a IT environment. It was a very enjoyable experience that I very much would like to go into again!" },
       
@@ -201,15 +202,15 @@
       
       { src: "images/RAIDserver1.jpg", desc: "One of my early computer projects, back when I was first learning the ropes of tech, was this Sata RAID server I managed. The top two computers I used as displays, and the bottom one was the server." },
       
-      { src: "images/RAIDserver2.jpg", desc: "The server itself was given to me by FNSS, but setting it up out of its broken state took weeks due to my limited knowlege at the time. Eventually, I did get it working properly!" },
+      { src: "images/RAIDserver2.jpg", desc: "The server itself was given to me by FNSS, but setting it up out of its broken state took weeks due to my limited knowledge at the time. Eventually, I did get it working properly!" },
       
-      { src: "images/RAIDserver3.jpg", desc: "How the RAID server worked was by, through special hardware built into it; combining seperate hard drives together into larger, more unified volumes taht you can use. RAID itself stands for 'Redundant Array of Independent Disks.' Redundant in this case means it has backups to ensure the server continues to funtion if part of it fails, which I believe despite being outdated is rather cool!" },
+      { src: "images/RAIDserver3.jpg", desc: "How the RAID server worked was by, through special hardware built into it; combining separate hard drives together into larger, more unified volumes that you can use. RAID itself stands for 'Redundant Array of Independent Disks.' Redundant in this case means it has backups to ensure the server continues to function if part of it fails, which I believe despite being outdated is rather cool!" },
       
-     { src: "images/3dPrinter.jpg", desc: "At FNSS I am the honorary 3d printer fixer, I spent hours fixing the schools old 3d printer and when we recived a new one; I spend equal time fixing that one when it failed. In early April the 3d printer had a massive mechanical and user error that resulted in the entire printing assembely being covered in the plasic filament is uses. I spend the time taking it apart, cleaning the parts, having new parts ordered to replace the unsalvageable parts, and repairing everything back working again!" },
+     { src: "images/3dPrinter.jpg", desc: "At FNSS I am the honorary 3d printer fixer, I spent hours fixing the schools old 3d printer and when we received a new one; I spend equal time fixing that one when it failed. In early April the 3d printer had a massive mechanical and user error that resulted in the entire printing assembly being covered in the plastic filament is uses. I spend the time taking it apart, cleaning the parts, having new parts ordered to replace the unsalvageable parts, and repairing everything back working again!" },
       
-      { src: "images/ProjectOldCompter.jpg", desc: "Another project of mine was fixing up a very old computer I was giving by a relative. The Computer was from 2001 so it was very interesting to see how certin parts changed over time and how others didn't change at all! Overall, it was quite fun to get it working again, though I couldn't run anything due to the storage being fully unfixable." },
+      { src: "images/ProjectOldCompter.jpg", desc: "Another project of mine was fixing up a very old computer I was giving by a relative. The Computer was from 2001 so it was very interesting to see how certain parts changed over time and how others didn't change at all! Overall, it was quite fun to get it working again, though I couldn't run anything due to the storage being fully unfixable." },
       
-      { src: "images/Veryearlyproject.jpg", desc: "My first ever computer project, I was given an old Acer laptop and took it upon myself to fix it. My first attempts did not see any results due to me basically not knowing anything at the time about computers. But after revisiting the project again many months later and doing actual proper cleaning, repairs, and replacing some parts like the hard drive for a faster ssd, I managed to get it running again!" },  
+      { src: "images/Veryearlyproject.jpg", desc: "My first ever computer project, I was given an old Acer laptop and took it upon myself to fix it. My first attempts did not see any results due to me basically not knowing anything at the time about computers. But after revisiting the project again many months later and doing actual proper cleaning, repairs, and replacing some parts like the hard drive for a faster SSD, I managed to get it running again!" },  
     ];
 
     let current = 0;
